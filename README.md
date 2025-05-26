@@ -7,19 +7,13 @@ A machine learning-based system for property recommendations and appraisal predi
 ```
 property_rec_system/
 ├── data/                   # Data directory
-│   ├── raw/               # Original, immutable data
-│   ├── processed/         # Cleaned and processed data
-│   └── models/            # Saved model files
-├── src/                   # Source code
-│   ├── data/             # Data processing scripts
-│   ├── features/         # Feature engineering
-│   ├── models/           # Model training and evaluation
-│   ├── visualization/    # Data visualization scripts
-│   └── api/              # API endpoints
-├── notebooks/            # Jupyter notebooks
-├── tests/               # Test files
-├── config/              # Configuration files
-└── docs/               # Documentation
+│   └── appraisals_dataset.json    # Real estate appraisal data
+├── notebooks/             # Jupyter notebooks
+│   ├── eda.ipynb         # Exploratory data analysis
+│   └── main.ipynb        # Main analysis notebook
+├── preprocess.py         # Data preprocessing module
+├── .gitignore            # Git ignore file
+└── README.md             # Project documentation
 ```
 
 ## Setup
