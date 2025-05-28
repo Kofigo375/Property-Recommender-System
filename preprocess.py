@@ -304,6 +304,84 @@ def preprocess_data(json_filepath, method='standard', return_scaler=False, selec
     else:
         scaled_df = standardize_features(numeric_df, method=method)
         return scaled_df
+    
+    
+    
+    
+    
+## preprocessing For the properties df 
+    
+
+#  create properties_df
+all_property_data = []
+
+# Iterate through each row in the original dataframe
+for idx, row in df.iterrows():  ## this will be the unprocessed original df 
+    order_id = row['orderID']
+    properties_list = row['properties']
+    
+    # For each property in the list, create a dictionary with orderID and property data
+    for prop in properties_list:
+        property_entry = {'orderID': order_id}
+        property_entry.update(prop)  # Add all properties from the dictionary
+        all_property_data.append(property_entry)
+
+# Create DataFrame from the collected property data
+properties_df = pd.DataFrame(all_property_data)
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+## Preprocessing for the comps df 
+    
+# create comps_df
+all_comps_data = []
+
+# Iterate through each row in the original dataframe
+for idx, row in df.iterrows():
+    order_id = row['orderID']
+    comps_list = row['comps']
+    
+    # For each comp in the list, create a dictionary with orderID and comp data
+    for comp in comps_list:
+        comp_entry = {'orderID': order_id}
+        comp_entry.update(comp)  # Add all fields from the comp dictionary
+        all_comps_data.append(comp_entry)
+
+# Create DataFrame from the collected comps data
+comps_df = pd.DataFrame(all_comps_data)    
+
+
+
+
+    
+    
+    
+    
+    
+    
+"""
+    
+    I want my preprocess.py to do these  main things 1. take the raw json data transform it into pandas df , drop some columns and apply some standardization functions ( already in the script) to the columns I decide to keep and make it available for model training
+    when I call open it in my main notebook . 
+    2. separate the properties column into a new properties df (like I have done in the eda.ipynb)
+    and apply some preprocessing steps to it like I did in the eda.ipynb and make it available for model training when I call open it in my main notebook
+    3. separate the comps column into a new dataframe and apply some preprocessing to it ( I will specify  ) and make it available in a clean format if I call upon it in my main notebook 
+ """
+    
+    
+    
+    
+    
+    
 
 if __name__ == "__main__":
     # Example usage
